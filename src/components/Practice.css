@@ -1,0 +1,165 @@
+.practice-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.setup-box {
+  width: 100%; /* responsive width */
+  /* background-color: black; */
+  max-width: 320px;
+  padding: 1rem;
+  border-radius: 12px;
+  background: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.session-box {
+    width: 100%;
+    /* background-color: black; */
+  text-align: center;
+}
+
+.scroll-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 20px 0;
+  flex-wrap: wrap; /* stack on small screens */
+}
+
+.scroll-column {
+  flex: 1 1 100px; /* responsive scaling */
+  max-width: 150px;
+  height: 120px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scroll-item {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  white-space: normal;
+  font-size: 1rem; /* base font size for mobile */
+}
+
+.scroll-item.highlight {
+  font-size: 1.3rem; /* bigger on mobile */
+  /* color: #007bff; */
+}
+
+.scroll-item.blurred {
+  font-size: 0.9rem;
+  color: #999;
+  filter: blur(1.2px);
+  opacity: 0.6;
+}
+
+/* Tablet view */
+
+@media (max-width: 380px) {
+  .scroll-column {
+    max-width: 85px;   /* narrower column */
+    height: 150px;      /* shorter column */
+    /* background-color: black; */
+  }
+
+  .scroll-item {
+    height: 50px;      /* reduce row height */
+    font-size: 0.6rem; /* smaller text */
+  }
+
+  .scroll-item.highlight {
+    font-size: 0.8rem;   /* slightly bigger but not oversized */
+  }
+
+  .scroll-item.blurred {
+    font-size: 0.6rem;
+    filter: blur(1px);
+  }
+}
+
+/* Phone view - enforce 2:1:1 grid */
+@media (max-width: 480px) {
+  .scroll-container {
+    display: flex;
+    width: 100%;
+    gap: 0.5rem; /* smaller gap on phones */
+  }
+
+  /* Book takes 50% (2/4 parts) */
+  .scroll-column.book {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  /* Chapter + Verse take 25% each (1/4 parts) */
+  .scroll-column.chapter,
+  .scroll-column.verse {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .scroll-item {
+    font-size: 0.7rem; /* tighter text */
+    height: 32px; /* smaller row height */
+  }
+
+  .scroll-item.highlight {
+    font-size: 0.8rem;
+  }
+}
+
+
+
+@media (min-width: 768px) {
+  .scroll-column {
+    max-width: 180px;
+    height: 140px;
+  }
+
+  .scroll-item {
+    font-size: 1.1rem;
+  }
+
+  .scroll-item.highlight {
+    font-size: 1.6rem;
+  }
+
+  .scroll-item.blurred {
+    font-size: 1rem;
+    filter: blur(1.3px);
+  }
+}
+
+/* Desktop view */
+@media (min-width: 1024px) {
+  .scroll-column {
+    /* max-width: 200px; */
+    height: 150px;
+  }
+
+  .scroll-item {
+    font-size: 1.2rem;
+  }
+
+  .scroll-item.highlight {
+    font-size: 1.8rem;
+  }
+
+  .scroll-item.blurred {
+    font-size: 1.2rem;
+    filter: blur(1.5px);
+  }
+}
